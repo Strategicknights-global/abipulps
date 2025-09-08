@@ -1,24 +1,37 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import ProductDetail from "./pages/ProductDetail";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Header from "../src/components/Header";
+import Footer from "../src/components/Footer";
 
-function App() {
+import Home from "../src/pages/Home";           
+import Products from "../src/pages/Products";
+import ProductDetail from "../src/pages/ProductDetail";
+import About from "../src/pages/About";
+import Contact from "../src/pages/Contact";
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {/* Home Route */}
+        <Route path="/" element={<Home />} />     {/* ✅ Home route */}
         <Route path="/products" element={<Products />} />
         <Route path="/products/:slug" element={<ProductDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+    </AnimatePresence>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Header />
+      <AnimatedRoutes />
       <Footer />
     </Router>
   );

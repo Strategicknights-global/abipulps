@@ -1,3 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* src/index.css */
+
+/* Font reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Container helper */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: #0077ff;
+}
+
+/* Buttons */
+.btn {
+  background: #0077ff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #005fcc;
+}
