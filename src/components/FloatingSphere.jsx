@@ -53,17 +53,19 @@ const OrbitingMoon = ({ radius = 2, size = 0.3, speed = 1, color = "gray" }) => 
 // Final Scene
 export default function FloatingSphere() {
   return (
+    <div>
     <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
       <ambientLight intensity={0.5} />
-      <pointLight position={[5, 5, 5]} intensity={1} />
+      <pointLight position={[5, 5, 5]} intensity={1000} />
 
       {/* Floating main sphere */}
       <AnimatedSphere />
 
       {/* Orbiting moons */}
-      <OrbitingMoon radius={2} size={0.3} speed={0.8} color="lightgray" />
-      <OrbitingMoon radius={3} size={0.2} speed={1.2} color="skyblue" />
-      <OrbitingMoon radius={4} size={0.25} speed={0.6} color="pink" />
+      <OrbitingMoon radius={2} size={0.3} speed={1} color="lightgray" />
+      <OrbitingMoon radius={3} size={0.2} speed={1.4} color="skyblue" />
+      <OrbitingMoon radius={4} size={0.25} speed={0.8} color="pink" />
     </Canvas>
+    </div>
   );
 }
